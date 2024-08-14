@@ -2,6 +2,24 @@ package class03归并排序与随机快排;
 
 
 public class Code03_PartitionAndQuickSort {
+    
+    //partiiton过程,把<num的数放在数组左边，>num的数放在数组的右边，=num的数放在数组的中间
+    //此过程的时间复杂度为O(n)，额外空间复杂度为O(1)
+    public static int[] partition_(int[] arr, int L, int R, int number){
+        int less = L-1;
+        int more = R+1;
+        while(L < more){ 
+            if(arr[L] < number){
+                swap(arr,++less,L++);
+            }else if(arr[L] > number){
+                swap(arr,--more,L);
+            }else {
+                L++;
+            }
+        }
+        return new int[] { less+1, more-1};
+    }
+    
     //partiiton过程,把<=num的数放在数组左边，>num的数放在数组的右边
     //此过程的时间复杂度为O(n)，额外空间复杂度为O(1)
     public static int partition(int[] arr, int L, int R){
