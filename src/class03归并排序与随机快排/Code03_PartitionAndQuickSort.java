@@ -8,14 +8,14 @@ public class Code03_PartitionAndQuickSort {
     public static int[] partition_(int[] arr, int L, int R, int number){
         int less = L-1;
         int more = R+1;
-        int index = L;
-        while(index < more){ 
-            if(arr[index] < number){
-                swap(arr,++less,index++);
-            }else if(arr[index] > number){
-                swap(arr,--more,index);
+        int current = L;
+        while(current < more){ 
+            if(arr[current] < number){
+                swap(arr,++less,current++);
+            }else if(arr[current] > number){
+                swap(arr,--more,current);
             }else {
-                index++;
+                current++;
             }
         }
         return new int[] { less+1, more-1};
